@@ -4,6 +4,17 @@ import { CreateTodoRequest } from '../types/CreateTodoRequest';
 import Axios from 'axios'
 import { UpdateTodoRequest } from '../types/UpdateTodoRequest';
 
+//Add search feature
+export async function search(searchKey: string, idToken: string): Promise<Todo[]> {
+  const response = await Axios.get(`${apiEndpoint}/search?key=${searchKey}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${idToken}`
+    }
+  })
+  return response.data.items
+}
+
 export async function getTodos(idToken: string): Promise<Todo[]> {
   console.log('Fetching todos')
 
