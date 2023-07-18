@@ -28,7 +28,7 @@ export const createTodo = async (
 
     const todoId = uuid.v4()
     const createdAt = new Date().toISOString()
-    const s3AttachmentUrl = attachmentUtils.getAttachmentUrl(todoId)
+    const s3AttachmentUrl = null
     const newItem = {
         userId,
         todoId,
